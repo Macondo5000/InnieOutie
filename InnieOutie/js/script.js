@@ -66,6 +66,12 @@ class PersonalityTest {
 
     bindEvents() {
         this.startButton.addEventListener('click', () => this.startQuiz());
+        // 使用事件委托来处理重新测试按钮
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('restart-btn')) {
+                window.location.reload();
+            }
+        });
     }
 
     startQuiz() {
@@ -159,7 +165,7 @@ class PersonalityTest {
                     </div>
                 </div>
 
-                <button class="lumon-btn restart-btn" onclick="location.reload()">
+                <button class="lumon-btn restart-btn">
                     重新测试
                 </button>
             </div>
