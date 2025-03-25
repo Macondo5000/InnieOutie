@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卢蒙公司员工性格测试</title>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/input-sans">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/visual-enhancements.css">
+</head>
+<body>
+    <div class="language-switch">
+        <button id="lang-toggle" class="lang-btn">EN</button>
+    </div>
+    <div id="welcome-screen" class="screen">
+        <div class="company-logo">
+            <img src="images/lumon-logo.jpg" alt="卢蒙公司" data-en-alt="Lumon Industries" data-zh-alt="卢蒙公司" />
+        </div>
+        <h1 class="translate" data-en="Lumon Industries" data-zh="卢蒙公司">卢蒙公司</h1>
+        <h2 class="translate" data-en="Employee Personality Assessment" data-zh="员工性格评估测试">员工性格评估测试</h2>
+        <p class="typewriter-text translate" data-en="Welcome to Lumon Industries Standard Employee Assessment." data-zh="欢迎参加卢蒙公司标准化员工评估。">欢迎参加卢蒙公司标准化员工评估。</p>
+        <p class="disclaimer translate" data-en="The test results will be permanently stored in your employee file." data-zh="本测试结果将被永久保存在您的员工档案中。">本测试结果将被永久保存在您的员工档案中。</p>
+        <button id="start-btn" class="lumon-btn translate" data-en="Start Test" data-zh="开始测试">开始测试</button>
+    </div>
+
+    <div id="quiz-screen" class="screen container hidden">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="question-container">
+            <h2 id="question-text"></h2>
+            <div id="options-container" class="options-container"></div>
+        </div>
+    </div>
+
+    <div id="result-screen" class="screen container hidden">
+        <!-- 结果将通过JS动态添加 -->
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 

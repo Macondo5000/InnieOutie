@@ -1,0 +1,433 @@
+/* Lumon 风格视觉优化 */
+:root {
+    --lumon-blue: #000000;
+    --lumon-light: #f5f5f5;
+    --lumon-dark: #000000;
+    --lumon-accent: #000000;
+    --lumon-warning: #e74c3c;
+    --lumon-success: #2ecc71;
+    --lumon-text: #000000;
+    --lumon-border: #e0e0e0;
+}
+
+/* 语言切换按钮 */
+.language-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.lang-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    font-family: 'Input Sans', 'SF Mono', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: white;
+    color: black;
+}
+
+/* 1. 整体风格 */
+body {
+    background: black;
+    color: var(--lumon-text);
+    font-family: 'Input Sans', 'SF Mono', monospace;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 欢迎页面特殊样式 */
+#welcome-screen {
+    background: black;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#welcome-screen h1,
+#welcome-screen h2 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-family: 'Input Sans', 'SF Mono', monospace;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+#welcome-screen h1 {
+    margin-top: 1rem;
+}
+
+#welcome-screen h2 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-family: 'Input Sans', 'SF Mono', monospace;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+#welcome-screen .company-logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome-screen .company-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(1.2);
+}
+
+#welcome-screen .typewriter-text {
+    color: white;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+#welcome-screen .disclaimer {
+    color: white;
+    margin: 0.5rem 0 1.5rem 0;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    font-style: normal;
+}
+
+/* 欢迎页面按钮特殊样式 */
+#welcome-screen .lumon-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+#welcome-screen .lumon-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* 问题页面容器样式 */
+.container {
+    background: white;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border: 1px solid var(--lumon-border);
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+/* 隐藏类 */
+.hidden {
+    display: none !important;
+}
+
+#quiz-screen,
+#result-screen {
+    background: white;
+}
+
+/* 2. 公司标志区域 */
+.company-logo {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.company-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--lumon-blue), transparent);
+}
+
+/* 3. 按钮样式 */
+.lumon-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lumon-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.lumon-btn:hover::before {
+    left: 100%;
+}
+
+/* 4. 问题选项样式 */
+.option-btn {
+    width: 100%;
+    background: white;
+    border: 2px solid var(--lumon-border);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Input Sans', 'SF Mono', monospace;
+}
+
+.option-btn:hover {
+    border-color: black;
+    background: rgba(0, 0, 0, 0.03);
+    color: black;
+}
+
+/* 5. 进度条样式 */
+.progress-bar {
+    background: var(--lumon-light);
+    height: 4px;
+    margin: 2rem 0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.progress {
+    background: black;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+/* 6. 结果页面样式 */
+.result-container {
+    padding: 0;
+    background: transparent;
+    color: var(--lumon-text);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.result-container .result-logo {
+    width: 150px;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+.result-title {
+    color: var(--lumon-dark);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+.result-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.2);
+    margin: 0.8rem auto;
+}
+
+.result-subtitle {
+    color: var(--lumon-text);
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* 8. 列表样式 */
+.traits-section, 
+.recommendations-section, 
+.company-suggestions {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 1rem;
+    margin: 0 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+.traits-section h3,
+.recommendations-section h3,
+.company-suggestions h3 {
+    color: var(--lumon-dark);
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: 1px;
+}
+
+li {
+    padding: 0.5rem 0;
+    padding-left: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--lumon-text);
+    position: relative;
+    font-size: 0.9rem;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+/* 添加横向布局容器 */
+.sections-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+/* 7. 警告文本样式 */
+.warning-text {
+    color: var(--lumon-text);
+    font-weight: 500;
+    padding: 1.5rem;
+    background: rgba(231, 76, 60, 0.05);
+    border-left: 4px solid var(--lumon-warning);
+    margin: 1.5rem 0;
+    border-radius: 0;
+}
+
+/* 重置按钮样式 */
+.result-container .restart-btn {
+    display: block;
+    margin: 1.5rem auto 1rem;
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.result-container .restart-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 特殊状态样式调整 */
+.innie .result-title,
+.outie .result-title,
+.balanced .result-title {
+    color: var(--lumon-dark);
+}
+
+/* 9. 打字机效果增强 */
+.typewriter-text {
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end),
+               blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgba(255, 255, 255, 0.5) }
+}
+
+/* 10. 移动端优化 */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .result-title {
+        font-size: 1.5rem;
+    }
+    
+    .option-btn {
+        padding: 0.8rem 1.2rem;
+    }
+    
+    .sections-container {
+        flex-direction: column;
+    }
+    
+    .traits-section, 
+    .recommendations-section, 
+    .company-suggestions {
+        margin: 0.5rem 0;
+    }
+}
+
+/* 11. 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.screen {
+    animation: fadeIn 0.5s ease forwards;
+} 

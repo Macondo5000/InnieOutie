@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+    <!-- 椭圆背景 -->
+    <ellipse cx="150" cy="75" rx="140" ry="65" fill="none" stroke="white" stroke-width="3"/>
+    
+    <!-- 经纬线装饰 -->
+    <path d="M150 10 C150 10 150 140 150 140" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M70 75 C70 75 230 75 230 75" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M80 35 C80 35 220 115 220 115" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M80 115 C80 115 220 35 220 35" stroke="white" stroke-width="2" fill="none"/>
+    
+    <!-- LUMON 文字 -->
+    <text x="150" y="85" font-family="Arial" font-size="36" font-weight="bold" fill="white" text-anchor="middle">LUMON</text>
+</svg> 
